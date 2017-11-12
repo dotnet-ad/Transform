@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+   <metadata minClientVersion="2.8.1">
+        <id>Transform</id>
+        <version>$version$</version>
+        <title>Transform for Monogame</title>
+        <authors>Aloïs DENIEL</authors>
+        <owners>Aloïs DENIEL</owners>
+        <licenseUrl>https://github.com/aloisdeniel/Transform/blob/master/LICENSE</licenseUrl>
+        <projectUrl>https://github.com/aloisdeniel/Transform/</projectUrl>
+        <iconUrl>https://raw.githubusercontent.com/aloisdeniel/Transform/master/doc/logo.png</iconUrl>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <summary>Base Monogame objects for managing relative transforms.</summary>
+        <description>Base Monogame objects for managing relative transforms.</description>
+        <tags>mongogame, transform, matrix</tags> 
+        <dependencies>
+        <group targetFramework="portable45-net45+win8+wpa81">
+            <dependency id="Monogame.Framework" version="3.6.0.1625" />
+        </group>
+        <group targetFramework="MonoAndroid10">
+            <dependency id="Monogame.Framework.Android"  version="3.6.0.1625" />
+        </group>
+        <group targetFramework="Xamarin.iOS10">
+            <dependency id="Monogame.Framework.iOS"  version="3.6.0.1625" />
+        </group>
+        <group targetFramework="xamarinmac">
+            <dependency id="Monogame.Framework.MacOS"  version="3.6.0.1625" />
+        </group>
+        <group targetFramework="uap">
+            <dependency id="Monogame.Framework.WindowsUniversal"  version="3.6.0.1625" />
+        </group>
+    </dependencies>
+   </metadata>
+   <files>
+
+     <!-- PCL -->
+     <file src="..\src\Transform\bin\Release\Transform.dll" target="lib\portable45-net45+win8+wpa81" />
+
+     <!--Xamarin.iOS-->
+     <file src="..\src\Transform\bin\Release\Transform.dll" target="lib\Xamarin.iOS10" />
+
+     <!--Xamarin.macOS-->
+     <file src="..\src\Transform\bin\Release\Transform.dll" target="lib\xamarinmac" />
+
+     <!--Xamarin.Android-->
+     <file src="..\src\Transform\bin\Release\Transform.dll" target="lib\MonoAndroid10" />
+
+     <!--UWP-->
+     <file src="..\src\Transform\bin\Release\Transform.dll" target="lib\uap" />
+   </files>
+</package>

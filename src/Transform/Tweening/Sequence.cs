@@ -40,6 +40,11 @@ namespace Transform
 
         public void Reset()
         {
+            foreach (var tween in this.tweens)
+            {
+                tween.Reset();
+            }
+
             this.current = 0;
             this.IsFinished = false;
         }

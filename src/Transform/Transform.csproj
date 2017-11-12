@@ -38,6 +38,7 @@
     <Compile Include="Tweening\ITween.cs" />
     <Compile Include="Tweening\Delay.cs" />
     <Compile Include="Tweening\Sequence.cs" />
+    <Compile Include="Tweening\Parallel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="MonoGame.Framework">
