@@ -52,8 +52,35 @@ Task("Build.Solutions")
     }
 });
 
+Task("Nuget.Pack.Sources")
+	.IsDependentOn("Build.Solutions")
+	.Does(() =>
+{
+    var sourceFiles = GetFiles("src/Transform/**/*.cs");
+
+    var content = new System.Text.StringBuilder();
+
+    content.AppendLine("// INCLUDED FILE, DO NOT MODIFY IT");
+    content.AppendLine("// (from nuget package 'Transform.Sources')\n\n");
+
+    foreach(var source in sourceFiles)
+    {
+        var path = MakeAbsolute(source).FullPath;
+        if(System.IO.Path.GetFileName(path) != "AssemblyInfo.cs")
+        {
+            Information($"Appending {source}");
+            var sourceContent = System.IO.File.ReadAllText(path);
+            content.AppendLine(sourceContent);
+        }
+    }
+
+    var output = (Directory(buildDirectory.FullPath) + File("Transform.cs")).Path;
+    System.IO.File.WriteAllText(output.ToString(), content.ToString());
+});
+
 Task("Nuget.Pack")
 	.IsDependentOn("Build.Solutions")
+	.IsDependentOn("Nuget.Pack.Sources")
 	.Does(() =>
 {
     if(!DirectoryExists(buildDirectory.FullPath))
