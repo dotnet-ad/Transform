@@ -151,12 +151,12 @@
 
         public void ToLocalPosition(ref Vector2 absolute, out Vector2 local)
         {
-            Vector2.Transform(ref absolute, ref this.absolute, out local);
+            Vector2.Transform(ref absolute, ref this.invertAbsolute, out local);
         }
 
         public void ToAbsolutePosition(ref Vector2 local, out Vector2 absolute)
         {
-            Vector2.Transform(ref local, ref this.invertAbsolute, out absolute);
+            Vector2.Transform(ref local, ref this.absolute, out absolute);
         }
 
         public Vector2 ToLocalPosition(Vector2 absolute)
@@ -210,7 +210,8 @@
             }
             else
             {
-                Matrix.Multiply(ref this.local, ref this.Parent.absolute, out this.absolute);
+                var parentAbsolute = this.Parent.Absolute;
+                Matrix.Multiply(ref this.local, ref parentAbsolute, out this.absolute);
                 this.absoluteScale = this.Parent.AbsoluteScale * this.Scale;
                 this.absoluteRotation = this.Parent.AbsoluteRotation + this.Rotation;
                 this.absolutePosition = Vector2.Zero;

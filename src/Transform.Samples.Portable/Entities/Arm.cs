@@ -11,24 +11,27 @@ namespace Transform.Samples.Portable
             this.Length = length;
         }
 
-        public float Length { get;  }
+        public float Length { get; }
 
         private List<Arm> children = new List<Arm>();
 
+        public Color Color { get; set; } = Color.White;
+
         public Transform2D Transform { get; } = new Transform2D();
 
-        public Arm CreateArm(float length)
+        public Arm CreateArm(float length, Color color)
         {
             var arm = new Arm(length);
+            arm.Color = color;
             arm.Transform.Position = new Vector2(this.Length, 0);
-            arm.Transform.Parent = this.Transform.Parent;
+            arm.Transform.Parent = this.Transform;
             this.children.Add(arm);
             return arm;
         }
 
         private static Texture2D pixel;
 
-        public void LoadContent(GraphicsDevice device)
+        public static void LoadContent(GraphicsDevice device)
         {
             if(pixel == null)
             {
@@ -39,10 +42,8 @@ namespace Transform.Samples.Portable
 
         public void Draw(SpriteBatch sb)
         {
-            /*sb.Draw(pixel, 
-                    position:this.Transform.AbsolutePosition,
-                    sourceRectangle: pixel.Bounds,
-                    scale: new Vector2()*/
+            var dest = new Rectangle((int)this.Transform.AbsolutePosition.X, (int)this.Transform.AbsolutePosition.Y - 5, (int)this.Length, 10);
+            sb.Draw(texture: pixel, position: new Vector2(dest.X, dest.Y), sourceRectangle: pixel.Bounds, rotation: this.Transform.AbsoluteRotation, scale:  this.Transform.AbsoluteScale * new Vector2(dest.Width,  dest.Height), color: this.Color);
 
             foreach (var child in this.children)
             {
