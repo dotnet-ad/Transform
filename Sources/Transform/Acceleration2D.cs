@@ -10,6 +10,8 @@ namespace Transform
             this.Velocity = velocity ?? throw new ArgumentException(nameof(velocity));
         }
 
+        public Transform2D Transform => this.Velocity.Transform;
+
         public Velocity2D Velocity { get; }
 
         public Vector2 Position { get; set; }
