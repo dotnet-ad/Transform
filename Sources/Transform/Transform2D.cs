@@ -239,9 +239,9 @@
                 this.UpdateLocal();
             }
 
-            if (this.needsLocalUpdate)
+            if (this.needsAbsoluteUpdate)
             {
-                this.UpdateLocal();
+                this.UpdateAbsolute();
             }
 
             return field;
