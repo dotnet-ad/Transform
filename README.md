@@ -2,7 +2,7 @@
 
 ![sample](doc/sample.gif)
 
-A base Monogame tools for managing relative transforms.
+Base Monogame objects for managing relative transforms.
 
 
 ## Quickstart
