@@ -145,6 +145,12 @@
         /// <value>The absolute matrix.</value>
         public Matrix Absolute => this.UpdateAbsoluteAndGet(ref this.absolute);
 
+        /// <summary>
+        /// Gets the matrix representing the invert of the absolute transform.
+        /// </summary>
+        /// <value>The absolute matrix.</value>
+        public Matrix InvertAbsolute => this.UpdateAbsoluteAndGet(ref this.invertAbsolute);
+
         #endregion
 
         #region Methods
