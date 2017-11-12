@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace Transform
 {
-    public class Tween2D
+    public class Tween2D : ITween
     {
         public Tween2D(TimeSpan duration, Transform2D transform, Transform2D to, Ease ease)
             : this(duration, transform, new Transform2D()

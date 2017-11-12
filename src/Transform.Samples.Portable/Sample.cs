@@ -33,7 +33,7 @@ namespace Transform.Samples.Portable
 
         private Velocity2D velocity2, velocity3;
 
-        private Tween2D tween;
+        private ITween tween;
 
         protected override void Initialize()
         {
@@ -45,12 +45,14 @@ namespace Transform.Samples.Portable
 
             this.arm.Transform.Position = new Vector2(this.GraphicsDevice.Viewport.Width / 2, this.GraphicsDevice.Viewport.Height / 2);
 
-            this.tween = new Tween2D(TimeSpan.FromSeconds(5), this.arm.Transform, new Transform2D()
+            var t1 = new Tween2D(TimeSpan.FromSeconds(5), this.arm.Transform, new Transform2D()
             {
                 Rotation = 5,
                 Position = this.arm.Transform.Position,
-                Scale = new Vector2(2,2),
+                Scale = new Vector2(2, 2),
             }, Ease.ElasticInOut);
+
+            this.tween = new Sequence(new Delay(TimeSpan.FromSeconds(3)), t1);
 
             this.velocity2 = new Velocity2D(arm2.Transform)
             {
@@ -66,12 +68,9 @@ namespace Transform.Samples.Portable
 
         protected override void Update(GameTime gameTime)
         {
-            if(gameTime.TotalGameTime >  TimeSpan.FromSeconds(5))
-            {
-                this.tween.Update(gameTime);
-                this.velocity2.Update(gameTime);
-                this.velocity3.Update(gameTime);
-            }
+            this.tween.Update(gameTime);
+            this.velocity2.Update(gameTime);
+            this.velocity3.Update(gameTime);
 
             base.Update(gameTime);
         }
