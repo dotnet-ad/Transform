@@ -15,7 +15,7 @@
         <tags>mongogame, transform, matrix</tags> 
         <dependencies>
         <group targetFramework="portable45-net45+win8+wpa81">
-            <dependency id="Monogame.Framework" version="3.6.0.1625" />
+            <dependency id="Monogame.Framework.Portable" version="3.6.0.1625" />
         </group>
         <group targetFramework="MonoAndroid10">
             <dependency id="Monogame.Framework.Android"  version="3.6.0.1625" />
