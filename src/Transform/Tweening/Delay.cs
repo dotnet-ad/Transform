@@ -1,8 +1,8 @@
-﻿using System;
-using Microsoft.Xna.Framework;
-
-namespace Transform
+﻿namespace Transform
 {
+    using System;
+    using Microsoft.Xna.Framework;
+
     public class Delay : ITween
     {
         public Delay(TimeSpan duration)

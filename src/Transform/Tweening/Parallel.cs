@@ -1,9 +1,9 @@
-﻿using System;
-using System.Linq;
-using Microsoft.Xna.Framework;
-
-namespace Transform
+﻿namespace Transform
 {
+    using System;
+    using System.Linq;
+    using Microsoft.Xna.Framework;
+
     public class Parallel : ITween
     {
         public Parallel(params ITween[] tweens)

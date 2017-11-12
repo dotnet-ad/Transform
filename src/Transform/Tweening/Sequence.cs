@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.Xna.Framework;
-
-namespace Transform
+﻿namespace Transform
 {
+    using System;
+    using System.Linq;
+    using Microsoft.Xna.Framework;
+
     public class Sequence : ITween
     {
         public Sequence(params ITween[] tweens)

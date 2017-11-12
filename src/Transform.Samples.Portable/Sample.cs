@@ -52,7 +52,7 @@ namespace Transform.Samples.Portable
                 Scale = new Vector2(2, 2),
             }, Ease.ElasticInOut);
 
-            this.tween = new Sequence(new Delay(TimeSpan.FromSeconds(3)), t1);
+            this.tween = new Repeat(new Sequence(new Delay(TimeSpan.FromSeconds(3)), t1));
 
             this.velocity2 = new Velocity2D(arm2.Transform)
             {

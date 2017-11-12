@@ -1,8 +1,8 @@
-﻿using System;
-using Microsoft.Xna.Framework;
-
-namespace Transform
+﻿namespace Transform
 {
+    using System;
+    using Microsoft.Xna.Framework;
+
     public class Tween2D : ITween
     {
         public Tween2D(TimeSpan duration, Transform2D transform, Transform2D to, Ease ease)
@@ -41,6 +41,8 @@ namespace Transform
         public Transform2D From { get; }
 
         public Transform2D To { get; }
+
+        public bool IsRevert { get; }
 
         public Ease Ease { get; }
 
